@@ -22,4 +22,17 @@ export default class ContatoController {
 
         return contatos;
     }
+
+    async recuperarPeloId(id) {
+        const contato = await Contato.findById(id);
+        return contato;
+    }
+
+    async remover(id) {
+        const resposta = await Contato.deleteOne({
+            _id: id
+        })
+
+        return resposta;
+    }
 }
